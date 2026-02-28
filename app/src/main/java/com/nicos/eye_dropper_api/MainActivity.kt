@@ -82,10 +82,9 @@ fun Greeting(
     selectedColor: Int = Color.Black.value.toInt(),
     launchColorPicker: () -> Unit
 ) {
-
     Box(modifier = modifier.fillMaxSize()) {
         Image(
-            painter = painterResource(id = R.drawable.sample), // Replace with your jpg name
+            painter = painterResource(id = R.drawable.sample),
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
