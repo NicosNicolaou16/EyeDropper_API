@@ -2,7 +2,6 @@ package com.nicos.eye_dropper_api
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,6 +15,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.nicos.eye_dropper_api.ui.theme.Eye_Dropper_APITheme
 
 class MainActivity : ComponentActivity() {
@@ -32,11 +33,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
+        var color: Int? = Color.Black.value.toInt()
         eyeDropperLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
-                    val color = result.data?.getIntExtra(Intent.EXTRA_COLOR, Color.BLACK)
+                    color = result.data?.getIntExtra(Intent.EXTRA_COLOR, Color.Black.value.toInt())
                     println("Selected color: $color")
                 }
             }
@@ -47,6 +48,7 @@ class MainActivity : ComponentActivity() {
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding),
+                        color = color,
                         launchColorPicker = { launchColorPicker() }
                     )
                 }
@@ -64,7 +66,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(
     name: String,
     modifier: Modifier = Modifier,
-    color: Int = Color.Black.value.toInt(),
+    color: Int? = Color.Black.value.toInt(),
     launchColorPicker: () -> Unit
 ) {
 
@@ -79,10 +81,12 @@ fun Greeting(
                 .clickable(
                     onClick = { launchColorPicker() }
                 )
-                .background(color = Color(color))
+                .size(150.dp)
+                .background(color = Color(color ?: Color.Black.value.toInt()))
         ) {
             Text(
                 text = "Hello $name!",
+                modifier = Modifier.align(Alignment.Center)
             )
         }
     }
