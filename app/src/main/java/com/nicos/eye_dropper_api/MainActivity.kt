@@ -69,7 +69,6 @@ fun Greeting(
     color: Int? = Color.Black.value.toInt(),
     launchColorPicker: () -> Unit
 ) {
-
     Column(
         modifier = modifier
             .fillMaxSize(),
