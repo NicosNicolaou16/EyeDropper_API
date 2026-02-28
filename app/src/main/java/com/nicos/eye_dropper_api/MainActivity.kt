@@ -96,19 +96,31 @@ fun Greeting(
         ) {
             Box(
                 modifier = Modifier
-                    .size(150.dp)
+                    .size(200.dp)
                     .background(color = Color(selectedColor))
                     .clickable(
                         onClick = { launchColorPicker() }
                     )
             ) {
-                Text(
-                    text = "Eye Dropper",
-                    color = Color.White,
-                    fontSize = 19.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.align(Alignment.Center)
-                )
+                Column(
+                    modifier = modifier
+                        .fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Text(
+                        text = "Select Color: ${selectedColor.toHexCode()}",
+                        color = Color.White,
+                        fontSize = 19.sp,
+                        fontWeight = FontWeight.Bold,
+                    )
+                    Text(
+                        text = "Eye Dropper",
+                        color = Color.White,
+                        fontSize = 19.sp,
+                        fontWeight = FontWeight.Bold,
+                    )
+                }
             }
         }
     }
@@ -123,4 +135,22 @@ fun GreetingPreview() {
             launchColorPicker = {}
         )
     }
+}
+
+// Helper to get Hex String
+fun Int.toHexCode(): String = String.format("#%08X", this)
+
+// Basic name matcher
+fun getColorName(colorInt: Int): String {return when (colorInt) {
+    Color.Black.toArgb() -> "Black"
+    Color.White.toArgb() -> "White"
+    Color.Red.toArgb() -> "Red"
+    Color.Green.toArgb() -> "Green"
+    Color.Blue.toArgb() -> "Blue"
+    Color.Yellow.toArgb() -> "Yellow"
+    Color.Cyan.toArgb() -> "Cyan"
+    Color.Magenta.toArgb() -> "Magenta"
+    Color.Gray.toArgb() -> "Gray"
+    else -> "Picked Color"
+}
 }
