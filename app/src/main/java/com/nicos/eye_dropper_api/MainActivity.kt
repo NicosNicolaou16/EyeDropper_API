@@ -21,8 +21,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,29 +33,30 @@ import com.nicos.eye_dropper_api.ui.theme.Eye_Dropper_APITheme
 class MainActivity : ComponentActivity() {
 
     private lateinit var eyeDropperLauncher: ActivityResultLauncher<Intent>
+    var selectedColor by mutableIntStateOf(Color.Black.value.toInt())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        var color: Int? = Color.Black.value.toInt()
         eyeDropperLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
-                    color = result.data?.getIntExtra(Intent.EXTRA_COLOR, Color.Black.value.toInt())
-                    println("Selected color: $color")
+                    val resultColor = result.data?.getIntExtra(
+                        Intent.EXTRA_COLOR,
+                        Color.Black.value.toInt()
+                    )
+                    println("Selected color: $resultColor")
+                    selectedColor = resultColor ?: Color.Black.value.toInt()
                 }
             }
-
         setContent {
+
             Eye_Dropper_APITheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val color by remember {
-                        mutableIntStateOf(color ?: Color.Black.value.toInt())
-                    }
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding),
-                        color = color,
+                        selectedColor = selectedColor,
                         launchColorPicker = { launchColorPicker() }
                     )
                 }
@@ -73,7 +74,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(
     name: String,
     modifier: Modifier = Modifier,
-    color: Int = Color.Black.value.toInt(),
+    selectedColor: Int,
     launchColorPicker: () -> Unit
 ) {
     Column(
@@ -84,11 +85,11 @@ fun Greeting(
     ) {
         Box(
             modifier = Modifier
+                .size(150.dp)
+                .background(color = Color(selectedColor))
                 .clickable(
                     onClick = { launchColorPicker() }
                 )
-                .size(150.dp)
-                .background(color = Color(color))
         ) {
             Text(
                 text = "Hello $name!",
@@ -102,6 +103,10 @@ fun Greeting(
 @Composable
 fun GreetingPreview() {
     Eye_Dropper_APITheme {
-        Greeting("Android", launchColorPicker = {})
+        Greeting(
+            "Android",
+            selectedColor = Color.Black.value.toInt(),
+            launchColorPicker = {}
+        )
     }
 }
