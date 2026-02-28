@@ -58,7 +58,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
         setContent {
-
             Eye_Dropper_APITheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
