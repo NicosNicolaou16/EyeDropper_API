@@ -8,6 +8,7 @@ android {
     compileSdk {
         version = preview("CinnamonBun")
     }
+    buildToolsVersion = "37.0.0 rc2"
 
     defaultConfig {
         applicationId = "com.nicos.eye_dropper_api"
@@ -35,7 +36,6 @@ android {
     buildFeatures {
         compose = true
     }
-    buildToolsVersion = "37.0.0 rc2"
 }
 
 dependencies {
