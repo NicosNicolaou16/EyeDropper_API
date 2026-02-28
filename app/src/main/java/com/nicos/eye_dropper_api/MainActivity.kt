@@ -30,10 +30,13 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nicos.eye_dropper_api.ui.theme.Eye_Dropper_APITheme
+import com.nicos.eye_dropper_api.utils.getClosestColorName
+import com.nicos.eye_dropper_api.utils.toHexCode
 
 class MainActivity : ComponentActivity() {
 
@@ -108,12 +111,20 @@ fun Greeting(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Text(
-                        text = "Select Color: ${selectedColor.toHexCode()}",
-                        color = Color.White,
-                        fontSize = 19.sp,
-                        fontWeight = FontWeight.Bold,
-                    )
+                    Box {
+                        Text(
+                            text = "Selected Color:\nHex: ${selectedColor.toHexCode()}\nColor Name: ${
+                                getClosestColorName(
+                                    selectedColor.toHexCode()
+                                )
+                            }",
+                            color = Color.White,
+                            textAlign = TextAlign.Center,
+                            fontSize = 19.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.align(Alignment.Center)
+                        )
+                    }
                     Text(
                         text = "Eye Dropper",
                         color = Color.White,
@@ -135,22 +146,4 @@ fun GreetingPreview() {
             launchColorPicker = {}
         )
     }
-}
-
-// Helper to get Hex String
-fun Int.toHexCode(): String = String.format("#%08X", this)
-
-// Basic name matcher
-fun getColorName(colorInt: Int): String {return when (colorInt) {
-    Color.Black.toArgb() -> "Black"
-    Color.White.toArgb() -> "White"
-    Color.Red.toArgb() -> "Red"
-    Color.Green.toArgb() -> "Green"
-    Color.Blue.toArgb() -> "Blue"
-    Color.Yellow.toArgb() -> "Yellow"
-    Color.Cyan.toArgb() -> "Cyan"
-    Color.Magenta.toArgb() -> "Magenta"
-    Color.Gray.toArgb() -> "Gray"
-    else -> "Picked Color"
-}
 }
