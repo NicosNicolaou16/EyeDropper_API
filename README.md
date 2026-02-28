@@ -28,9 +28,7 @@ To run this project, you must set up the **Android CinnamonBun (Android 17 Previ
 ## 📸 Screenshots & Demos
 
 <p align="left">
-  <video src="examples/example_gif1.webm" width="200" height="500" controls muted autoplay loop>
-    Your browser does not support the video tag.
-  </video>
+  <img src="examples/example_gif1.gif" alt="Eye Dropper UI" height="500" width="200">
 </p>
 
 ## 🛠️ Tech Stack & Libraries
