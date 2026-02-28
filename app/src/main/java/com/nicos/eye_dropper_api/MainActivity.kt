@@ -41,7 +41,7 @@ import com.nicos.eye_dropper_api.utils.toHexCode
 class MainActivity : ComponentActivity() {
 
     private lateinit var eyeDropperLauncher: ActivityResultLauncher<Intent>
-    var selectedColor by mutableIntStateOf(Color.Black.toArgb())
+    var selectedColor by mutableIntStateOf(Color.Black.copy(alpha = 0.5f).toArgb())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,10 +51,10 @@ class MainActivity : ComponentActivity() {
                 if (result.resultCode == Activity.RESULT_OK) {
                     val resultColor = result.data?.getIntExtra(
                         Intent.EXTRA_COLOR,
-                        Color.Black.toArgb()
+                        Color.Black.copy(alpha = 0.5f).toArgb()
                     )
                     println("Selected color: $resultColor")
-                    selectedColor = resultColor ?: Color.Black.toArgb()
+                    selectedColor = resultColor ?: Color.Black.copy(alpha = 0.5f).toArgb()
                 }
             }
         setContent {
@@ -89,7 +89,7 @@ fun Greeting(
             painter = painterResource(id = R.drawable.sample), // Replace with your jpg name
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop // This makes the image cover the whole screen
+            contentScale = ContentScale.Crop
         )
         Column(
             modifier = modifier
@@ -125,12 +125,6 @@ fun Greeting(
                             modifier = Modifier.align(Alignment.Center)
                         )
                     }
-                    Text(
-                        text = "Eye Dropper",
-                        color = Color.White,
-                        fontSize = 19.sp,
-                        fontWeight = FontWeight.Bold,
-                    )
                 }
             }
         }
