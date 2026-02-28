@@ -19,6 +19,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -45,6 +49,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             Eye_Dropper_APITheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    val color by remember {
+                        mutableIntStateOf(color ?: Color.Black.value.toInt())
+                    }
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding),
@@ -66,7 +73,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(
     name: String,
     modifier: Modifier = Modifier,
-    color: Int? = Color.Black.value.toInt(),
+    color: Int = Color.Black.value.toInt(),
     launchColorPicker: () -> Unit
 ) {
     Column(
@@ -81,7 +88,7 @@ fun Greeting(
                     onClick = { launchColorPicker() }
                 )
                 .size(150.dp)
-                .background(color = Color(color ?: Color.Black.value.toInt()))
+                .background(color = Color(color))
         ) {
             Text(
                 text = "Hello $name!",
