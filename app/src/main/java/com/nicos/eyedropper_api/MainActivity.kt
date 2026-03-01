@@ -89,7 +89,7 @@ fun EyeDropper(
             .fillMaxSize()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.sample),
+            painter = painterResource(id = R.drawable.dragonball_image),
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
