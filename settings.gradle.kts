@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Eye_Dropper_API"
+rootProject.name = "EyeDropper_API"
 include(":app")

@@ -4,17 +4,16 @@ plugins {
 }
 
 android {
-    namespace = "com.nicos.eye_dropper_api"
+    namespace = "com.nicos.eyedropper_api"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = preview("CinnamonBun")
     }
+    buildToolsVersion = "37.0.0 rc2"
 
     defaultConfig {
         applicationId = "com.nicos.eye_dropper_api"
         minSdk = 28
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -31,8 +30,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     buildFeatures {
         compose = true
