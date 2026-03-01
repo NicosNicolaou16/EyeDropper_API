@@ -28,7 +28,7 @@ To run this project, you must set up the **Android CinnamonBun (Android 17 Previ
 ## 📸 Screenshots & Demos
 
 <p align="left">
-  <img src="app/untitled123.gif" alt="Eye Dropper UI" height="500" width="200">
+  <img src="examples/example_gif.gif" alt="Eye Dropper UI" height="500" width="200">
 </p>
 
 ## 🛠️ Tech Stack & Libraries
