@@ -1,4 +1,4 @@
-package com.nicos.eye_dropper_api
+package com.nicos.eyedropper_api
 
 import android.app.Activity
 import android.content.Intent
@@ -36,9 +36,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.nicos.eye_dropper_api.ui.theme.Eye_Dropper_APITheme
-import com.nicos.eye_dropper_api.utils.getClosestColorName
-import com.nicos.eye_dropper_api.utils.toHexCode
+import com.nicos.eyedropper_api.R
+import com.nicos.eyedropper_api.ui.theme.EyeDropper_APITheme
+import com.nicos.eyedropper_api.utils.getClosestColorName
+import com.nicos.eyedropper_api.utils.toHexCode
 
 class MainActivity : ComponentActivity() {
 
@@ -60,7 +61,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         setContent {
-            Eye_Dropper_APITheme {
+            EyeDropper_APITheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         modifier = Modifier.padding(innerPadding),
@@ -127,7 +128,7 @@ fun Greeting(
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Eye_Dropper_APITheme {
+    EyeDropper_APITheme {
         Greeting(
             selectedColor = Color.Black.toArgb(),
             launchColorPicker = {}

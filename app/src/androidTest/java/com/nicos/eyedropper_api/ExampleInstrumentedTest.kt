@@ -1,4 +1,4 @@
-package com.nicos.eye_dropper_api
+package com.nicos.eyedropper_api
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

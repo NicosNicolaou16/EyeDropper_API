@@ -1,4 +1,4 @@
-package com.nicos.eye_dropper_api
+package com.nicos.eyedropper_api
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.nicos.eye_dropper_api.utils
+package com.nicos.eyedropper_api.utils
 
 import kotlin.math.pow
 import kotlin.math.sqrt

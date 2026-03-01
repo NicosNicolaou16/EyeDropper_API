@@ -1,4 +1,4 @@
-package com.nicos.eye_dropper_api.ui.theme
+package com.nicos.eyedropper_api.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

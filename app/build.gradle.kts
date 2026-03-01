@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.nicos.eye_dropper_api"
+    namespace = "com.nicos.eyedropper_api"
     compileSdk {
         version = preview("CinnamonBun")
     }
