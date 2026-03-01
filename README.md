@@ -47,7 +47,7 @@ This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-starte
 
 ## 📚 References & Useful Links
 
-- [EyeDropper API](https://android-developers.googleblog.com/2026/02/the-second-beta-of-android-17.html)
+- [EyeDropper API - Android 17 Beta 2 - Documentation](https://android-developers.googleblog.com/2026/02/the-second-beta-of-android-17.html)
 - [Dragonball Z - Background Image](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/446a20cc-3d9c-4cdf-8845-cee8c49b5076/de6t0co-dd2a4334-2396-49bc-8fb1-4679e22d670d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi80NDZhMjBjYy0zZDljLTRjZGYtODg0NS1jZWU4YzQ5YjUwNzYvZGU2dDBjby1kZDJhNDMzNC0yMzk2LTQ5YmMtOGZiMS00Njc5ZTIyZDY3MGQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.4PaSAv4OVp2wEXbEONrfOaKb3GT2XLkS8bhGG93Xez8)
 
 ## ⭐ Stargazers
