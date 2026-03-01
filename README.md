@@ -25,7 +25,7 @@ To run this project, you must set up the **Android CinnamonBun (Android 17 Previ
     *   In the **SDK Tools** tab, ensure **Android SDK Build-Tools 37.0.0-rc2** (or newer) is installed.
 4.  **Emulator:** Create a Virtual Device using the **CinnamonBun System Image**.
 
-## 📸 Screenshots & Demos
+## 📸 Demos
 
 <p align="left">
   <img src="examples/example_gif.gif" alt="Eye Dropper UI" height="500" width="200">
