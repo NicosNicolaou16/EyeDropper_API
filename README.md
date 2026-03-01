@@ -15,7 +15,7 @@ This open-source project demonstrates the implementation of the **EyeDropper API
 
 ## 🚀 Getting Started
 
-To run this project, you must set up the **Android CinnamonBun (Android 17 Preview)** environment:
+To run this project, you must set up the **Android CinnamonBun (Android 17 Preview)** environment ([For more details, see the Getting Started section.](https://android-developers.googleblog.com/2026/02/the-second-beta-of-android-17.html))):
 
 1.  **Install Android Studio:** Use the latest **Canary** or **Preview** or **Stable** version.
 2.  **Download SDK Platform:**
