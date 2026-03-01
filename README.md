@@ -17,7 +17,7 @@ This open-source project demonstrates the implementation of the **Eye Dropper AP
 
 To run this project, you must set up the **Android CinnamonBun (Android 17 Preview)** environment:
 
-1.  **Install Android Studio:** Use the latest **Canary** or **Preview** version.
+1.  **Install Android Studio:** Use the latest **Canary** or **Preview** or **Stable** version.
 2.  **Download SDK Platform:**
     *   Go to `Settings > Languages & Frameworks > Android SDK`.
     *   Install **Android SDK Platform CinnamonBun** (API Level: CinnamonBun).
