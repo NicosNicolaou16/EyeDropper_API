@@ -11,7 +11,7 @@
 [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@nicosnicolaou16)
 [![Google Developer Profile](https://img.shields.io/badge/Developer_Profile-blue?style=for-the-badge&label=Google)](https://g.dev/nicolaou_nicos)
 
-This open-source project demonstrates the implementation of the **EyeDropper API** in Android using Jetpack Compose. It allows users to precisely pick colors from any part of the screen or specific images, making it an essential tool for creative and design-oriented applications.
+This open-source project demonstrates the implementation of the **EyeDropper API** in Android using Jetpack Compose. This new system API, introduced in **[Android 17 Beta 2](https://android-developers.googleblog.com/2026/02/the-second-beta-of-android-17.html)**, allows users to precisely pick colors from any part of the screen without requiring sensitive screen capture permissions.
 
 ## 🚀 Getting Started
 
@@ -23,7 +23,7 @@ To run this project, you must set up the **Android CinnamonBun (Android 17 Previ
     *   Install **Android SDK Platform CinnamonBun** (API Level: CinnamonBun).
 3.  **Install Build Tools:**
     *   In the **SDK Tools** tab, ensure **Android SDK Build-Tools 37.0.0-rc2** (or newer) is installed.
-4.  **Emulator:** Create a Virtual Device using the **CinnamonBun System Image**.
+4.  If you don’t have a physical Pixel device, test the API using the Android Emulator in Android Studio by creating a Virtual Device with the **64-bit [CinnamonBun (Android 17)](https://android-developers.googleblog.com/2026/02/the-second-beta-of-android-17.html) system image**.
 
 ## 📸 Demos
 
