@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,6 +26,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
@@ -82,7 +84,10 @@ fun Greeting(
     selectedColor: Int = Color.Black.value.toInt(),
     launchColorPicker: () -> Unit
 ) {
-    Box(modifier = modifier.fillMaxSize()) {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+    ) {
         Image(
             painter = painterResource(id = R.drawable.sample),
             contentDescription = null,
@@ -97,33 +102,23 @@ fun Greeting(
         ) {
             Box(
                 modifier = Modifier
-                    .size(200.dp)
+                    .size(width = 250.dp, height = 110.dp)
+                    .clip(RoundedCornerShape(30.dp))
                     .background(color = Color(selectedColor))
-                    .clickable(
-                        onClick = { launchColorPicker() }
-                    )
+                    .clickable { launchColorPicker() }
             ) {
-                Column(
-                    modifier = modifier
-                        .fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Box {
-                        Text(
-                            text = "Selected Color:\nHex: ${selectedColor.toHexCode()}\nColor Name: ${
-                                getClosestColorName(
-                                    selectedColor.toHexCode()
-                                )
-                            }",
-                            color = Color.White,
-                            textAlign = TextAlign.Center,
-                            fontSize = 19.sp,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.align(Alignment.Center)
+                Text(
+                    text = "Selected Color:\nHex: ${selectedColor.toHexCode()}\nColor Name: ${
+                        getClosestColorName(
+                            selectedColor.toHexCode()
                         )
-                    }
-                }
+                    }",
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    fontSize = 19.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.align(Alignment.Center)
+                )
             }
         }
     }
