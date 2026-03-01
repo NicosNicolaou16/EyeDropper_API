@@ -1,4 +1,4 @@
-# Eye Dropper API
+# EyeDropper API
 
 [![Linktree](https://img.shields.io/badge/linktree-1de9b6?style=for-the-badge&logo=linktree&logoColor=white)](https://linktr.ee/nicos_nicolaou)
 [![Site](https://img.shields.io/badge/Site-blue?style=for-the-badge&label=Web)](https://nicosnicolaou16.github.io/)
@@ -11,7 +11,7 @@
 [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@nicosnicolaou16)
 [![Google Developer Profile](https://img.shields.io/badge/Developer_Profile-blue?style=for-the-badge&label=Google)](https://g.dev/nicolaou_nicos)
 
-This open-source project demonstrates the implementation of the **Eye Dropper API** in Android using Jetpack Compose. It allows users to precisely pick colors from any part of the screen or specific images, making it an essential tool for creative and design-oriented applications.
+This open-source project demonstrates the implementation of the **EyeDropper API** in Android using Jetpack Compose. It allows users to precisely pick colors from any part of the screen or specific images, making it an essential tool for creative and design-oriented applications.
 
 ## 🚀 Getting Started
 
