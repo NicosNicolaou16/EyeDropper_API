@@ -6,9 +6,9 @@ plugins {
 android {
     namespace = "com.nicos.eyedropper_api"
     compileSdk {
-        version = preview("CinnamonBun")
+        version = preview("37")
     }
-    buildToolsVersion = "37.0.0 rc2"
+    buildToolsVersion = "37.0.0"
 
     defaultConfig {
         applicationId = "com.nicos.eye_dropper_api"
