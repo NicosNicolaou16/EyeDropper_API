@@ -31,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -59,7 +60,7 @@ class MainActivity : ComponentActivity() {
                         Intent.EXTRA_COLOR,
                         Color.Black.copy(alpha = 0.5f).toArgb()
                     )
-                    Log.d("SelectedColor:", "$resultColor")
+                    Log.d("EyeDropper", "Selected color: ${resultColor?.toHexCode()}")
                     selectedColor = resultColor ?: Color.Black.copy(alpha = 0.5f).toArgb()
                 }
             }
@@ -92,6 +93,8 @@ fun EyeDropper(
     selectedColor: Int = Color.Black.toArgb(),
     launchColorPicker: () -> Unit
 ) {
+    val textColor = if (Color(selectedColor).luminance() > 0.5f) Color.Black else Color.White
+
     Box {
         Image(
             painter = painterResource(id = R.drawable.dragonball_image),
@@ -117,10 +120,10 @@ fun EyeDropper(
                         R.string.selected_color_hex_color_name,
                         selectedColor.toHexCode(),
                         getClosestColorName(
-                            selectedColor.toHexCode()
+                            selectedColor
                         )
                     ),
-                    color = Color.White,
+                    color = textColor,
                     textAlign = TextAlign.Center,
                     fontSize = 19.sp,
                     fontWeight = FontWeight.Bold,
