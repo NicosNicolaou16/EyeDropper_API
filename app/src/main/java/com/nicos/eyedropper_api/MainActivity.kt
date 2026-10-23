@@ -1,8 +1,10 @@
 package com.nicos.eyedropper_api
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -73,8 +75,12 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun launchColorPicker() {
-        val intent = Intent(Intent.ACTION_OPEN_EYE_DROPPER)
-        eyeDropperLauncher.launch(intent)
+        try {
+            val intent = Intent(Intent.ACTION_OPEN_EYE_DROPPER)
+            eyeDropperLauncher.launch(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(this, R.string.eye_dropper_unavailable, Toast.LENGTH_LONG).show()
+        }
     }
 }
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Eye_Dropper_API</string>
+    <string name="eye_dropper_unavailable">EyeDropper unavailable</string>
 </resources>
