@@ -42,7 +42,7 @@ This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-starte
 
 -   **Target SDK:** **37** (EyeDropper API requirement)
 -   **Minimum SDK:** **28**
--   **Kotlin Version:** **2.4.0**
+-   **Kotlin Version:** **2.4.21**
 -   **AGP Version:** **9.4.1**
 -   **Gradle Version:** **9.8.1**
 
