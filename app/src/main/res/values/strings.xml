@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Eye_Dropper_API</string>
+    <string name="eye_dropper_unavailable">The EyeDropper requires Android 17 or newer.</string>
+    <string name="selected_color_hex_color_name">Selected Color:\nHex: %1$s\nColor Name: %2$s</string>
 </resources>

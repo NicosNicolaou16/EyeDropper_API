@@ -1,8 +1,11 @@
 package com.nicos.eyedropper_api
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -23,14 +26,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -55,7 +61,7 @@ class MainActivity : ComponentActivity() {
                         Intent.EXTRA_COLOR,
                         Color.Black.copy(alpha = 0.5f).toArgb()
                     )
-                    println("Selected color: $resultColor")
+                    Log.d("EyeDropper", "Selected color: ${resultColor?.toHexCode()}")
                     selectedColor = resultColor ?: Color.Black.copy(alpha = 0.5f).toArgb()
                 }
             }
@@ -73,21 +79,25 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun launchColorPicker() {
-        val intent = Intent(Intent.ACTION_OPEN_EYE_DROPPER)
-        eyeDropperLauncher.launch(intent)
+        try {
+            val intent = Intent(Intent.ACTION_OPEN_EYE_DROPPER)
+            eyeDropperLauncher.launch(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(this, R.string.eye_dropper_unavailable, Toast.LENGTH_LONG).show()
+        }
     }
 }
 
 @Composable
 fun EyeDropper(
     modifier: Modifier = Modifier,
-    selectedColor: Int = Color.Black.value.toInt(),
+    selectedColor: Int = Color.Black.toArgb(),
     launchColorPicker: () -> Unit
 ) {
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-    ) {
+    val textColor = if (Color(selectedColor).luminance() > 0.5f) Color.Black else Color.White
+    val colorName = remember(selectedColor) { getClosestColorName(selectedColor) }
+
+    Box {
         Image(
             painter = painterResource(id = R.drawable.dragonball_image),
             contentDescription = null,
@@ -108,12 +118,12 @@ fun EyeDropper(
                     .clickable { launchColorPicker() }
             ) {
                 Text(
-                    text = "Selected Color:\nHex: ${selectedColor.toHexCode()}\nColor Name: ${
-                        getClosestColorName(
-                            selectedColor.toHexCode()
-                        )
-                    }",
-                    color = Color.White,
+                    text = stringResource(
+                        R.string.selected_color_hex_color_name,
+                        selectedColor.toHexCode(),
+                        colorName
+                    ),
+                    color = textColor,
                     textAlign = TextAlign.Center,
                     fontSize = 19.sp,
                     fontWeight = FontWeight.Bold,

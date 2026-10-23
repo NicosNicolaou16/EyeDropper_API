@@ -42,8 +42,9 @@ This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-starte
 
 -   **Target SDK:** **37** (EyeDropper API requirement)
 -   **Minimum SDK:** **28**
--   **Kotlin Version:** **2.4.0**
--   **Gradle Version:** **9.2.1**
+-   **Kotlin Version:** **2.4.21**
+-   **AGP Version:** **9.4.1**
+-   **Gradle Version:** **9.8.1**
 
 ## 📚 References & Useful Links
 
@@ -53,7 +54,7 @@ This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-starte
 ## ⭐ Stargazers
 
 If you find this Eye Dropper implementation useful, please give it a star!
-Check out all the stargazers here: [Stargazers on GitHub](https://github.com/NicosNicolaou16/Eye_Dropper_API/stargazers)
+Check out all the stargazers here: [Stargazers on GitHub](https://github.com/NicosNicolaou16/EyeDropper_API/stargazers)
 
 ## 🙏 Support & Contributions
 
