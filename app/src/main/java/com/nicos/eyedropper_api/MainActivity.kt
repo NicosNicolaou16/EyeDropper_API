@@ -26,6 +26,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -94,6 +95,7 @@ fun EyeDropper(
     launchColorPicker: () -> Unit
 ) {
     val textColor = if (Color(selectedColor).luminance() > 0.5f) Color.Black else Color.White
+    val colorName = remember(selectedColor) { getClosestColorName(selectedColor) }
 
     Box {
         Image(
@@ -119,9 +121,7 @@ fun EyeDropper(
                     text = stringResource(
                         R.string.selected_color_hex_color_name,
                         selectedColor.toHexCode(),
-                        getClosestColorName(
-                            selectedColor
-                        )
+                        colorName
                     ),
                     color = textColor,
                     textAlign = TextAlign.Center,
