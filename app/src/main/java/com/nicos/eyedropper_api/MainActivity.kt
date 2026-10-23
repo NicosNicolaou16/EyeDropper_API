@@ -90,10 +90,7 @@ fun EyeDropper(
     selectedColor: Int = Color.Black.value.toInt(),
     launchColorPicker: () -> Unit
 ) {
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-    ) {
+    Box {
         Image(
             painter = painterResource(id = R.drawable.dragonball_image),
             contentDescription = null,
