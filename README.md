@@ -54,7 +54,7 @@ This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-starte
 ## ⭐ Stargazers
 
 If you find this Eye Dropper implementation useful, please give it a star!
-Check out all the stargazers here: [Stargazers on GitHub](https://github.com/NicosNicolaou16/Eye_Dropper_API/stargazers)
+Check out all the stargazers here: [Stargazers on GitHub](https://github.com/NicosNicolaou16/EyeDropper_API/stargazers)
 
 ## 🙏 Support & Contributions
 
