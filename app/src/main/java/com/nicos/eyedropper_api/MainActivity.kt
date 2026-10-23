@@ -87,7 +87,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun EyeDropper(
     modifier: Modifier = Modifier,
-    selectedColor: Int = Color.Black.value.toInt(),
+    selectedColor: Int = Color.Black.toArgb(),
     launchColorPicker: () -> Unit
 ) {
     Box {
