@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -33,6 +34,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,7 +59,7 @@ class MainActivity : ComponentActivity() {
                         Intent.EXTRA_COLOR,
                         Color.Black.copy(alpha = 0.5f).toArgb()
                     )
-                    println("Selected color: $resultColor")
+                    Log.d("SelectedColor:", "$resultColor")
                     selectedColor = resultColor ?: Color.Black.copy(alpha = 0.5f).toArgb()
                 }
             }
@@ -111,11 +113,13 @@ fun EyeDropper(
                     .clickable { launchColorPicker() }
             ) {
                 Text(
-                    text = "Selected Color:\nHex: ${selectedColor.toHexCode()}\nColor Name: ${
+                    text = stringResource(
+                        R.string.selected_color_hex_color_name,
+                        selectedColor.toHexCode(),
                         getClosestColorName(
                             selectedColor.toHexCode()
                         )
-                    }",
+                    ),
                     color = Color.White,
                     textAlign = TextAlign.Center,
                     fontSize = 19.sp,
